@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-cream: #f7f1e3;
+  --bg-deco: rgba(212, 169, 106, 0.25);
+  --accent: #b8f8e8;
+  --accent-light: #e8faf2;
+  --accent-deep: #278c7c;
+  --gold: #d4a96a;
+  --text-dark: #333;
+  --text-dim: #666;
+  --warm-white: #fefdfb;
+  --card-shadow: 0 4px 20px rgba(40, 140, 124, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg-cream);
+}
+
+/* 棕色波点背景纹理 */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(rgba(212, 169, 106, 0.3) 2px, transparent 2px);
+  background-size: 24px 24px;
+  transform: rotate(45deg);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 右侧稀疏金色星点装饰保留 */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 100%;
+  background-image: radial-gradient(var(--bg-deco) 2px, transparent 2px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
