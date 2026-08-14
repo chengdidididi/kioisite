@@ -84,14 +84,14 @@ function animateCount(target) {
 async function fetchFans() {
   loading.value = true
   try {
-    const res = await fetch('/api/x/web-interface/card?mid=1096820127')
+    const res = await fetch('/api/x/relation/stat?vmid=1096820127')
     const data = await res.json()
-    if (data.code === 0 && data.data) {
+    if (res.ok && data.code === 0 && data.data) {
       fans.value = data.data.follower
       loading.value = false
       animateCount(data.data.follower)
     } else {
-      throw new Error(data.message || '获取失败')
+      throw new Error(data.message || `获取失败（HTTP ${res.status}）`)
     }
   } catch (err) {
     console.error('获取粉丝数失败:', err)
